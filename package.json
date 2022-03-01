@@ -10,9 +10,11 @@
         "start": "node app.js"
     },
     "dependencies": {
+        "@line/bot-sdk": "^7.4.0",
         "dotenv": "^10.0.0",
         "express": "^4.16.1",
-        "jsonwebtoken": "^8.5.1"
+        "jsonwebtoken": "^8.5.1",
+        "mysql2": "^2.3.3"
     },
     "devDependencies": {
         "nodemon": "^2.0.13"
