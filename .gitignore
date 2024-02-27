@@ -1,7 +1,18 @@
-.DS_Store
-node_modules
-/dist
+# App config files
 .env
+
+# Finder config file
+.DS_Store
+
+# OpenAPI exported file
+openapi_exported.json
+
+# Directories
+.nyc_output
+coverage
+node_modules
+ssl_keys
+dist
 
 # Log files
 npm-debug.log*

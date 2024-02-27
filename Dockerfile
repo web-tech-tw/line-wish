@@ -1,19 +1,19 @@
-FROM node:16
+FROM node:18-alpine
 
-# Create app directory
-WORKDIR /usr/src/app
+ENV RUNTIME_ENV container
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
+RUN adduser -u 3000 -D recv
 
+RUN mkdir -p /.npm /workplace
+WORKDIR /workplace
+ADD . /workplace
+
+RUN chown -R \
+    3000:3000 \
+    /.npm /workplace
+
+USER 3000
 RUN npm install
-# If you are building your code for production
-# RUN npm ci --only=production
 
-# Bundle app source
-COPY . .
-
-EXPOSE 8080
-CMD [ "node", "server.js" ]
+EXPOSE 3000
+CMD ["npm", "start"]
